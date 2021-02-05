@@ -1,0 +1,40 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center">Contact Page</h2>
+
+    <div class="row mt-5 text-center">
+
+        <div class="card col-lg-3 col-sm-6 mt-5 bg-secondary midi">
+            <h4 class="text-center"><i class=" fas fa-phone-square-alt"></i> Contact</h4>
+            <p class="mt-3 font-weight-bold text-center" style="color:white">
+                <a class="text-light" href="tel: +91-8817084011" style="text-decoration: none;"> +91-8817084011</a> ,
+                <a class="text-light" href="tel:  +91-7770939197" style="text-decoration: none;"> +91-7770939197</a>
+            </p>
+        </div>
+
+        <div class="card col-lg-3 col-sm-6 mt-5 bg-success my">
+            <h4 class="text-center"><i class="fas fa-at"></i> Send Email</h4>
+            <p class="mt-3 font-weight-bold text-center" style="color:red">
+                <a class="text-danger" href="mailto: animis230@gmail.com" style="text-decoration: none;"><i class="fas fa-envelope"></i> animis230@gmail.com</a>
+            </p>
+        </div>
+
+        <div class="card col-lg-3 col-sm-6 mt-5 bg-secondary midi">
+            <h4 class="text-center"><i class="fas fa-map-marked-alt"></i> Office Address</h4>
+            <p class="mt-3 font-weight-bold text-center" style="color:red">
+                <a class="text-light" href="https://goo.gl/maps/rDcj4fJ2z1vcymst5" target="new_tab" style="text-decoration: none;"> Gwalior</a>
+            </p>
+        </div>
+
+        <div class="card col-lg-3 col-sm-6 mt-5 bg-success my">
+            <h4 class="text-center"><i class="fas fa-clock"></i> Office Hours</h4>
+            <p class="mt-3 font-weight-bold text-center" style="color:red"> 24 <i class="fas fa-times"></i> 7 </p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+{% block body %}
+<div class="container mt-5">
+    <h2 class="text-center">View Appointment</h2>
+    <div class="card col-lg-12 col-sm-12 bg-secondary">
+        <table id="example" class="table table-dark table-hover mt-4">
+            <thead>
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Doctor's Name</th>
+                <th scope="col">Patient's Name</th>
+                <th scope="col">Appointment Date</th>
+                <th scope="col">Appointment Time</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in appoint %}
+            <tr>
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.doctor}}</td>
+                <td>{{i.patient}}</td>
+                <td>{{i.date1}}</td>
+                <td>{{i.time1}}</td>
+                <td>
+                    <a class="btn btn-danger" href="{% url 'delete_appointment' i.id %}" onclick="return confirm('Are you really want to delete..?')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

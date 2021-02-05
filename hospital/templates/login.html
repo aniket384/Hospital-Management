@@ -1,0 +1,38 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+{% block body %}
+
+{% ifequal error "no" %}
+<script>
+    alert('Logged In Successfully');
+    window.location=('{% url 'home' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Invalid Login Credentials , Try Again');
+</script>
+{% endifequal %}
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="card col-md-6  mt-5 login" style="background-color: moccasin; box-shadow: 5px 5px 12px 23px burlywood;">
+        <h2 class="text-center mt-5">Admin Login</h2>
+        <form method="post" class="form">
+           {% csrf_token %}
+            <label class="font-weight-bold text-danger">Admin Name *</label>
+            <input type="text" class="form-control" name="uname" placeholder="Please Enter Your Username Here !" required>
+            <label class="font-weight-bold text-danger">Password *</label>
+            <input type="password" class="form-control" name="pwd" placeholder="Please Enter Your Password Here !" required>
+            <br>
+            <div class="text-center mb-4">
+                <input type="submit" value="Login" class="btn btn-success">
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

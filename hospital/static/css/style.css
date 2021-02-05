@@ -1,0 +1,35 @@
+.nav-link{
+color: white !important;
+}
+
+.nav-link:hover {
+color: #00A8B0 !important;
+background-color: #5F5F5F;
+box-shadow:2px 2px black;
+border-radius:12px;
+}
+
+.navbar-brand:hover {
+color:  #B0000E !important;
+background-color: #5F5F5F;
+font-weight:bold;
+}
+
+.form{
+border-radius: 1rem solid black;
+}
+
+.midi:hover {
+box-shadow: 2px 2px 20px 6px black;
+transform:skewX(20deg)
+}
+
+.my:hover{
+box-shadow: 2px 2px 20px 6px black;
+transform: scale(1.2);
+}
+
+.login:hover{
+box-shadow: 2px 2px 20px 6px black;
+transform: translate3d(15px, 15px, 15px)
+}

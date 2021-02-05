@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Management System</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link type="text/css" rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- DataTable CSS Links  -->
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css" rel="stylesheet">
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" style="color:#00A8B0; box-shadow:2px 2px 3px 4px black; border-radius:12px;"  href="{% url 'login' %}"> <i class="fas fa-ambulance"></i> Hospital Management System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+
+          {% if not request.user.is_staff %}
+          <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="{% url 'login' %}"><i class="fas fa-home"></i> Home</a>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}"><i class="far fa-address-card"></i> About Us</a>
+          </li>
+
+           <li class="nav-item">
+               <a class="nav-link" href="{% url 'contact' %}"><i class="fas fa-id-badge"></i> Contact Us</a>
+           </li>
+
+          {% endif %}
+
+          {% if request.user.is_staff %}
+
+          <li class="nav-item">
+              <a class="btn btn-secondary mr-2" aria-current="page" href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
+          </li>
+
+          <div class="btn-group mr-2">
+              <button type="button" class="btn btn-secondary">Doctor</button>
+              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'add_doctor' %}">Add Doctor</a></li>
+                <li><a class="dropdown-item" href="{% url 'view_doctor' %}">View Doctor</a></li>
+              </ul>
+            </div>
+
+          <div class="btn-group mr-2">
+              <button type="button" class="btn btn-secondary">Patient</button>
+              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'add_patient' %}">Add Patient</a></li>
+                <li><a class="dropdown-item" href="{% url 'view_patient' %}">View Patient</a></li>
+              </ul>
+            </div>
+
+          <div class="btn-group mr-2">
+              <button type="button" class="btn btn-secondary">Appointment</button>
+              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'add_appointment' %}">Add Appointment</a></li>
+                <li><a class="dropdown-item" href="{% url 'view_appointment' %}">View Appointment</a></li>
+              </ul>
+            </div>
+          <li class="nav-item">
+               <a class="btn btn-secondary" href="{% url 'logout' %}">Logout</a>
+           </li>
+          {% endif %}
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<body style="background-color:bisque;">
+{% block body %}
+
+{% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://kit.fontawesome.com/dc1849ef6b.js" crossorigin="anonymous"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+
+<!-- DataTable JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+
+</script>
+</body>
+</html>
